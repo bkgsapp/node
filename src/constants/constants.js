@@ -1,5 +1,5 @@
 module.exports = {
-    devMode:false,
+    devMode:true,
     aws_access_key_id:"AKIAV6MUHVLWPCA7IS3S",
     aws_secret_access_key:"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",
     sslKeyPath: "/etc/letsencrypt/live/insidemyfarm.net/privkey.pem",
