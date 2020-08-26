@@ -17,7 +17,7 @@ const https = require('https')
   var mysql_con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "KiraneWala@369",
+    password: "Bangalore@1",
     database: "bkgs"
   });
 
@@ -25,7 +25,7 @@ const https = require('https')
   var bkgs_con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "KiraneWala@369",
+    password: "Bangalore@1",
     database: "bkgs"
   });
 
@@ -38,7 +38,7 @@ const https = require('https')
 
   var mysql_await
   (async function() {
-    mysql_await = await mysql_aw.createConnection({host:'localhost', user: 'root',password: "KiraneWala@369", database: 'bkgs',Promise: bluebird})
+    mysql_await = await mysql_aw.createConnection({host:'localhost', user: 'root',password: "Bangalore@1", database: 'bkgs',Promise: bluebird})
  })();
 
   mysql_con.connect(function(err) {
