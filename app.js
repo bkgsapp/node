@@ -404,7 +404,7 @@ app.post('/changeZone',async function(req,res){
   try{
     var updateFieldSt = 'zone_'+ZoneNo+'_st'
     var updateFieldRt = 'zone_'+ZoneNo+'_rt'
-    var updateName = 'Zone_'+ZoneNo+'NM'
+    var updateName = 'Zone_'+ZoneNo+'_NM'
     var [result,Fileds] = await mysql_await.execute("UPDATE `irrigation_cntrl` SET `"+updateFieldSt+"`='"+StartTime+"',`"+updateFieldRt+"`='"+RunTime+"',`"+updateName+"`='"+ZoneName+"' WHERE `id` = 'FBKSS001'");
     res.send('success');
   }
