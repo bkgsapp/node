@@ -31,6 +31,21 @@ const https = require('https')
 
   // var mysql_con = mysql.createConnection({
   //   host: "localhost",
+  //   user: "root",
+  //   password: "KiraneWala@369",
+  //   database: "bkgs"
+  // });
+
+
+  // var bkgs_con = mysql.createConnection({
+  //   host: "localhost",
+  //   user: "root",
+  //   password: "KiraneWala@369",
+  //   database: "bkgs"
+  // });
+
+  // var mysql_con = mysql.createConnection({
+  //   host: "localhost",
   //   user: "insidemy_farm2b6",
   //   password: "InsMyFarm777",
   //   database: "insidemy_farm2b6m_primary_database"
@@ -375,8 +390,14 @@ app.post('/getZoneData',async function(req,res){
   const startTime = "Z"+zoneNo+"_start_time";
   const RunTime = "Z"+zoneNo+"_run_time";
   try{
+    var [ZoneNames,Fileds] = await mysql_await.execute("SELECT `Zone_1_NM`,`Zone_2_NM`,`Zone_3_NM`,`Zone_4_NM`,`Zone_5_NM`,`Zone_6_NM`,`Zone_7_NM`,`Zone_8_NM`,`Zone_9_NM`,`Zone_10_NM`,`Zone_11_NM`,`Zone_12_NM` FROM `irrigation_cntrl` WHERE `id`='FBKSS001'");
     var [result,Fileds] = await mysql_await.execute("SELECT * FROM `irrigation_status` ORDER BY `timestamp` LIMIT 1");
-    res.send(result);
+    var i = 0;
+    for(var k in ZoneNames[0])
+    {
+      result[0][k] = ZoneNames[0][k];
+    }
+    res.send(result)
   }
   catch(e){
     console.log(e);
