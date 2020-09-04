@@ -400,11 +400,12 @@ app.post('/getZoneCntr',async function(req,res){
 
 app.post('/changeZone',async function(req,res){
   //console.log(req.body);
-  const{ZoneNo,StartTime,RunTime} = req.body;
+  const{ZoneNo,StartTime,RunTime,ZoneName} = req.body;
   try{
     var updateFieldSt = 'zone_'+ZoneNo+'_st'
     var updateFieldRt = 'zone_'+ZoneNo+'_rt'
-    var [result,Fileds] = await mysql_await.execute("UPDATE `irrigation_cntrl` SET `"+updateFieldSt+"`='"+StartTime+"',`"+updateFieldRt+"`='"+RunTime+"' WHERE `id` = 'FBKSS001'");
+    var updateName = 'Zone_'+ZoneNo+'NM'
+    var [result,Fileds] = await mysql_await.execute("UPDATE `irrigation_cntrl` SET `"+updateFieldSt+"`='"+StartTime+"',`"+updateFieldRt+"`='"+RunTime+"',`"+updateName+"`='"+ZoneName+"' WHERE `id` = 'FBKSS001'");
     res.send('success');
   }
   catch(e){
