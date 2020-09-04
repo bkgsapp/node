@@ -390,7 +390,7 @@ app.post('/getZoneData',async function(req,res){
   const startTime = "Z"+zoneNo+"_start_time";
   const RunTime = "Z"+zoneNo+"_run_time";
   try{
-    var [ZoneNames,Fileds] = await mysql_await.execute("SELECT `Zone_1_NM`,`Zone_2_NM`,`Zone_3_NM`,`Zone_4_NM`,`Zone_5_NM`,`Zone_6_NM`,`Zone_7_NM`,`Zone_8_NM`,`Zone_9_NM`,`Zone_10_NM`,`Zone_11_NM`,`Zone_12_NM` FROM `irrigation_cntrl` WHERE `id`='FBKSS001'");
+    var [ZoneNames,Fileds] = await mysql_await.execute("SELECT `Zone_1_NM`, `zone_1_st`, `zone_1_rt`, `Zone_2_NM`, `zone_2_st`, `zone_2_rt`, `Zone_3_NM`, `zone_3_st`, `zone_3_rt`, `Zone_4_NM`, `zone_4_st`, `zone_4_rt`, `Zone_5_NM`, `zone_5_st`, `zone_5_rt`, `Zone_6_NM`, `zone_6_st`, `zone_6_rt`, `Zone_7_NM`, `zone_7_st`, `zone_7_rt`, `Zone_8_NM`, `zone_8_st`, `zone_8_rt`, `Zone_9_NM`, `zone_9_st`, `zone_9_rt`, `Zone_10_NM`, `zone_10_st`, `zone_10_rt`, `Zone_11_NM`, `zone_11_st`, `zone_11_rt`, `Zone_12_NM`, `zone_12_st`, `zone_12_rt` FROM `irrigation_cntrl` WHERE `id` = 'FBKSS001'");
     var [result,Fileds] = await mysql_await.execute("SELECT * FROM `irrigation_status` ORDER BY `timestamp` LIMIT 1");
     var i = 0;
     for(var k in ZoneNames[0])
